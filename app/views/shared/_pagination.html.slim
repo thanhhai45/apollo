@@ -1,0 +1,50 @@
+/= pagy.inspect
+/- link = pagy_link_proc(pagy)
+/.blog__paging
+  nav.table-pagination aria-label="pager" role="navigation"
+    ul.paging.pagination
+      - if pagy.prev
+        li.paging__item.page-item
+          == link.call(pagy.prev, '', 'aria-label="Trang trước" class="paging__link"')
+      - else
+          == link.call(1, '', 'class="paging__link"')
+      - pagy.series.each do |item|
+        - if item.is_a?(Integer)
+          li.paging__item.page-item
+            == link.call(item, item, 'class=page-link')
+        - elsif item.is_a?(String)
+          li.paging__item.page-item
+            = link_to(item, "javascript:void(0)", class: "paging__link")
+        - elsif item == :gap
+          li.paging__item.page-item.disabled
+            == link_to("...", "javascript:void(0)", class: "paging__link")
+      - if pagy.next
+        li.page-item
+          == link.call(pagy.next, '', 'aria-label="Trang sau" class="paging__link"')
+      - else
+        li.page-item.disabled
+          == link.call(pagy.last, '', 'class="paging__link"')
+- link = pagy_link_proc(pagy)
+.blog__paging
+  nav.pagy_nav.pagination role="navigation" aria-label="pager"
+    - if pagy.prev
+      span.page.prev ==> link.call(pagy.prev, t('options.prev_page'), 'aria-label="previous"')
+    - else
+      span.page.prev.disabled ==> t('options.prev_page')
+
+    - pagy.series.each do |item|        # series example: [1, :gap, 7, 8, "9", 10, 11, :gap, 36]
+      - if item.is_a?(Integer)          # page link
+        span.page ==> link.call(item)
+
+      - elsif item.is_a?(String)        # current page
+        span.page.current ==> item
+
+      - elsif item == :gap              # page gap
+        span.page.gap ==> pagy_t('pagy.nav.gap')
+
+    - if pagy.next
+      span.page.next == link.call(pagy.next, t('options.next_page'), 'aria-label="next"')
+    - else
+      span.page.next.disabled == t('options.next_page')
+
+      

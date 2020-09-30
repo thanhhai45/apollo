@@ -1,0 +1,65 @@
+= render partial: 'header'
+h1.hidden
+  = title 'About'
+.about-page
+  .about-page__panel
+    = image_tag "bg-about-us.jpg", alt: "bg-about-us.jpg"
+  .contact__form
+    p.contact__heading = t("menu.li_about_us")
+    p.contact__description
+      = t("about_us_page.title")
+  .about-page__why
+    p.about-page__why-title = t("about_us_page.why_choose_apollo")
+    .about-page__why-list
+      .about-page__why-box
+        = image_tag "about/award.svg", alt: "about/award.svg"
+        p = t("about_us_page.card.title_1")
+      .about-page__why-box
+        = image_tag "about/price.svg", alt: "about/price.svg"
+        p = t("about_us_page.card.title_2")
+      .about-page__why-box
+        = image_tag "about/team.svg", alt: "about/team.svg"
+        p = t("about_us_page.card.title_3")
+      .about-page__why-box
+        = image_tag "about/idea.svg", alt: "about/idea.svg"
+        p = t("about_us_page.card.title_4")
+      .about-page__why-box
+        = image_tag "about/jet.svg", alt: "about/jet.svg"
+        p = t("about_us_page.card.title_5")
+      .about-page__why-box
+        = image_tag "about/lifecycle.svg", alt: "about/lifecycle.svg"
+        p = t("about_us_page.card.title_6")
+      .about-page__why-box
+        = image_tag "about/work.svg", alt: "about/work.svg"
+        p = t("about_us_page.card.title_7")
+      .about-page__why-box
+        = image_tag "about/support.svg", alt: "about/support.svg"
+        p = t("about_us_page.card.title_8")
+      .about-page__why-box
+        = image_tag "about/learn.svg", alt: "about/learn.svg"
+        p = t("about_us_page.card.title_9")
+      .about-page__why-box
+        = image_tag "about/build.svg", alt: "about/build.svg"
+        p = t("about_us_page.card.title_10")
+  .about-page__founder
+    .about-page__founder-image
+      = image_tag "about-fouder.jpg", alt: "about-fouder.jpg"
+      p.name Hồ Anh Tuấn
+      p.title CTO & Founder
+    .about-page__founder-story
+      p.title = t("about_us_page.founder.title")
+      .story
+        = t("about_us_page.founder.description_1")
+        br/
+        br/
+        = t("about_us_page.founder.description_2")
+        br/
+        br/
+        = t("about_us_page.founder.description_3")
+        br/
+        br/
+        = t("about_us_page.founder.description_4")
+      .about-page__read-more = t("options.read_more")
+  section.feedback
+    = render partial: 'form'
+= render partial: 'footer'

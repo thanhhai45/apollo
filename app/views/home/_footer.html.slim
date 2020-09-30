@@ -1,0 +1,40 @@
+footer.footer
+  .footer__faded
+  .footer__main
+    .footer__logo
+      = image_tag "logo.svg", alt: "logo.svg"
+      .footer__info info@techapollo.vn
+      .footer__copy-right +84 6654 6458
+    .footer__bar
+      .footer__nav
+        ul
+          li
+            | Menu
+          li
+            a href="/#{I18n.locale}/" data-turbolinks="false"
+              = t("menu.li_home").capitalize
+          li
+            a href="/#{I18n.locale}/service" data-turbolinks="false"
+              = t("menu.li_service").capitalize
+          li
+            a href="/#{I18n.locale}/proceduce" data-turbolinks="false"
+              = t("menu.li_process").capitalize
+          li
+            a href="/#{I18n.locale}/project" data-turbolinks="false"
+              = t("menu.li_project").capitalize
+          li
+            a href="/#{I18n.locale}/about-us" data-turbolinks="false"
+              = t("menu.li_about_us").capitalize
+          li
+            a href="/#{I18n.locale}/recruit" data-turbolinks="false"
+              = t("menu.li_career").capitalize
+          li
+            a href="/#{I18n.locale}/contact" data-turbolinks="false"
+              = t("menu.li_contact").capitalize
+    .footer__social
+      ul
+        li
+          = t("options.social")
+        li
+          span.icon
+            i.fab.fa-facebook-f

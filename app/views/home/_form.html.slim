@@ -1,0 +1,24 @@
+section.feedback
+  .columns
+    .column
+      p.feedback__title = t("home_page.your_idea")
+      p.feedback__sub
+        = t("home_page.share_with_me")
+    .column
+      .feedback__form
+        form action="https://formspree.io/xdopkzdy" method="POST" 
+          .field
+            .control
+              input.input placeholder="#{t("home_page.your_name")}" name="name" type="text" /
+          .field
+            .control
+              input.input placeholder="#{t("home_page.your_email")}" name="_replyto" type="email" /
+          .field
+            .control
+              input.input placeholder="#{t("home_page.your_title")}" name="title" type="text" /
+          .field
+            .control
+              textarea.textarea placeholder="#{t("home_page.your_content")}" name="content"
+          .control
+            button.button.primary-button type="submit" = t("home_page.send")
+          

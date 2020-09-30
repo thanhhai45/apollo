@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= display_meta_tags site: 'Tech Apollo - Software outsourcing' %>
+    <link rel="icon" href="https://techapollo.vn/wp-content/uploads/2017/06/cropped-av-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="https://techapollo.vn/wp-content/uploads/2017/06/cropped-av-180x180.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:locale" content="en_US">
+    <meta name="og:locale:alternate" content="vi_VN">
+    <meta name="description" content="Tech Apollo is a quality software outsourcing service provider based in Vietnam with one representative office in The United States">
+    <%= stylesheet_link_tag 'bulma.min.css', media: 'all' %>
+    <%= stylesheet_link_tag 'slick.css', media: 'all' %>
+    <%= stylesheet_link_tag 'main.css', media: 'all' %>
+    <%= stylesheet_link_tag 'responsive.css', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <script src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  </body>
+</html>

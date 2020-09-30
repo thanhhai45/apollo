@@ -1,0 +1,116 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Service'
+.service-page
+  = image_tag "d.png", alt: "d.png"
+  .service-page__top
+    p.service-page__heading = t("menu.li_service")
+    p.service-page__sub
+      = t("service_page.app.title")
+  .service-page__list
+    .service-page__row
+      .service-page__img
+        = image_tag "f.png", alt: "f.png"
+      .service-page__content
+        p.service-page__name = t("service_page.app.mobile_develop") 
+        .service-page__metadata
+          span iOS
+          span Android
+          span Windows Phone
+        .service-page__description
+          = t("service_page.app.mobile_title_1")
+          br/
+          br/
+          = t("service_page.app.mobile_title_2")
+          br/
+          br/
+          = t("service_page.app.mobile_title_3")
+          br/
+          br/
+          b = t("service_page.app.tech_expire")
+          = t("service_page.app.tech_expire_1")
+          br/
+          br/
+          b = t("service_page.app.development_app")
+          br/
+          = t("service_page.app.development_app_title")
+          br/
+          br/
+          b = t("service_page.app.development_ios")
+          br/
+          = t("service_page.app.development_ios_title")
+          br/
+          br/
+          b = t("service_page.app.development_android")
+          br/
+          = t("service_page.app.development_android_title")
+          br/
+          br/
+          b = t("service_page.app.development_winphone")
+          br/
+          = t("service_page.app.development_winphone_title")
+          br/
+          br/
+          b = t("service_page.app.development_hybird")
+          br/
+          = t("service_page.app.development_hybird_title_1")
+          = t("service_page.app.development_hybird_title_2")
+          br/
+          br/
+          
+        span.service-page__read = t("options.read_more")
+    .service-page__row.rtl
+      .service-page__img
+        = image_tag "g.png", alt: "g.png"
+      .service-page__content
+        p.service-page__name = t("service_page.web.development_web")
+        .service-page__description
+          b = t("service_page.web.development_web_title")
+          = t("service_page.web.development_web_title_1")
+          br/
+          br/
+          = t("service_page.web.development_web_title_2")
+          br/
+          br/
+          = t("service_page.web.development_web_title_3")
+          br/
+          br/
+          = t("service_page.web.development_web_title_4")
+          br/
+          br/
+          = t("service_page.web.development_web_title_5")
+          br/
+          = t("service_page.web.development_web_title_6")
+          br/
+          = t("service_page.web.development_web_title_7")
+          br/
+          = t("service_page.web.development_web_title_8")
+          br/
+          = t("service_page.web.development_web_title_9")
+          br/
+          = t("service_page.web.development_web_title_10")
+          br/
+          = t("service_page.web.development_web_title_11")
+          br/
+          = t("service_page.web.development_web_title_12")
+
+        spans.service-page__read = t("options.read_more")
+    .service-page__row
+      .service-page__img
+        = image_tag "h.png", alt: "h.png"
+      .service-page__content
+        p.service-page__name = t("service_page.ui_ux.title")
+        .service-page__description
+          = t("service_page.ui_ux.description_1")
+          br/
+          br/
+          = t("service_page.ui_ux.description_2")
+          br/
+          br/
+          = t("service_page.ui_ux.description_3")
+          br/
+          br/
+        span.service-page__read = t("options.read_more")
+  section.feedback
+    = render partial: 'form'
+= render partial: 'footer'

@@ -1,0 +1,23 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Contact'
+.contact
+  .contact__panel
+    = image_tag "contact-panel.jpg", alt: "contact-panel.jpg"
+  .contact__form
+    p.contact__heading = t("contact_page.title")
+    p.contact__description = t("contact_page.description")
+  section.feedback
+    = render partial: 'form'
+  .contact__locations
+    .contact__item
+      p.contact__addresss
+        = t("contact_page.address_vn")
+      p.contact__phone = t("contact_page.phone_vn")
+    .contact__item
+      p.contact__addresss
+        = t("contact_page.address_en")
+      p.contact__phone = t("contact_page.phone_en")
+  .contact__map
+    = image_tag "contact-map.jpg", alt: "contact-map.jpg"
+= render partial: 'footer'

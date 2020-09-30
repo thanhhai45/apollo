@@ -1,0 +1,48 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Project'
+.project-page
+  = image_tag "bg-project.jpg", class: "project-page__panel", alt: "project-page__panel"
+  .project-page__top
+    p.project-page__heading = t("menu.li_project")
+    p.project-page__sub
+      = t("works_page.title")
+  .project-page__list.columns.is-multiline
+    - (1..5).each_with_index do |_p, index|
+      - index = index +  1
+      .column.is-4
+        .project__card.card data-id="#{index}"
+          .card-image
+            figure.image.is-4by3
+              - if [1,2,3].include?(index)
+                = image_tag "projects/app_#{index}/1.jpg", class: "project-image-1", alt: 'project-image-1'
+                = image_tag "projects/app_#{index}/2.png", class: "project-image-2", alt: 'project-image-2'
+              - else
+                = image_tag "projects/app_#{index}/1.jpg", class: "project-image-1", alt: 'project-image-1'
+                = image_tag "projects/app_#{index}/2.jpg", class: "project-image-2", alt: 'project-image-2'
+          .card-content
+            p.project__name = t("projects.app_#{index}.title")
+            p.project__description = t("projects.app_#{index}.subtitle")
+  /.project-page__paging
+    ul.paging
+      li.paging__item
+        a.paging__link href="#"  Trang trước
+      li.paging__item
+        a.paging__link href="#"  1
+      li.paging__item.active
+        a.paging__link href="#"  2
+      li.paging__item
+        a.paging__link href="#"  3
+      li.paging__item
+        span.paging__link ...
+      li.paging__item
+        a.paging__link href="#"  23
+      li.paging__item
+        a.paging__link href="#"  24
+      li.paging__item
+        a.paging__link href="#"  Trang sau
+  /! MODAL
+  - (1..5).each_with_index do |_p, index|
+    - index = index +  1
+    = render partial: "projects/app_#{index}"
+= render partial: 'footer'

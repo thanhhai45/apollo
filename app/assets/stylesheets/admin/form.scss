@@ -1,0 +1,32 @@
+.trix-content {
+  min-height: 300px;
+}
+.hidden {
+  display: none;
+}
+.upload-photo {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+  img.upload-image-preview {
+    border: 1px solid #ddd;
+    width: 100px;
+    height: 100px;
+  }
+  &:hover {
+    .button-upload {
+      display: block;
+    }
+    .upload-image-preview {
+      opacity: 0.5;
+    }
+  }
+}
+.button-upload {
+  position: absolute;
+  top: 45%;
+  left: 48px;
+  display: none;
+  z-index: 1000;
+}

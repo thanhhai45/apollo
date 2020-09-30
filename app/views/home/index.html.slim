@@ -1,0 +1,118 @@
+- active_tab = params[:action]
+h1.hidden
+  = title 'Home Page'
+.home
+  /! INTRODUCTION SECTION
+  section.introduction
+    = render partial: 'header'
+    = image_tag("bg-home.png", class: "introduction__bg", alt: "bg-home.png")
+    = image_tag("mb-home-introduce.png", class: "introduction__bg", alt: "mb-home-introduce.png", class: "introduction__bg is-mobile")
+    .introduction__info
+      p.introduction__slogan = t("home_page.right_text")
+      a.introduction__more.primary-button href="/#{I18n.locale}/about-us" data-turbolinks="false"
+        = t("home_page.learn_more")
+  /! FOUNDER SECTION
+  section.founder.columns
+    .founder__picture.column
+      = image_tag "bg-about-us.png", alt: "bg-about-us.png"
+    .founder__story.column
+      p.founder__title = t("menu.li_about_us")
+      p.founder__text = t("home_page.introduce")
+      a.primary-button href="/#{I18n.locale}/about-us" data-turbolinks="false"
+        = t("home_page.learn_more")
+  /! SERVICE SECTION
+  section.service
+    p.service__title = t("menu.li_service")
+    .service__list
+      .service__item
+        = image_tag "outline.svg", alt: "outline.svg"
+        p.service__heading = t("home_page.mobile_develop")
+        p.service__info = t("home_page.build_full_os")
+        a href="/#{I18n.locale}/service" data-turbolinks="false"
+          = t("options.detail")
+      .service__item
+        = image_tag "outline.svg", alt: "outline.svg"
+        p.service__heading = t("home_page.web_develop")
+        p.service__info = t("home_page.help_startup")
+        a href="/#{I18n.locale}/service" data-turbolinks="false"
+          = t("options.detail")
+      .service__item
+        = image_tag "outline.svg", alt: "outline.svg"
+        p.service__heading = t("home_page.ui_ux")
+        p.service__info  = t("home_page.idea")
+        a href="/#{I18n.locale}/service" data-turbolinks="false"
+          = t("options.detail")
+  /! PROJECT SECTION
+  section.project
+    .project__header
+      p.project__heading = t("menu.li_project")
+    .columns
+      .project__left.column.is-two-thirds
+        .project__card.card data-id="1"
+          .card-image
+            figure.image.is-4by3
+              = image_tag "projects/app_1/1.jpg", class: "project-image-1", alt: "triphunter1"
+              = image_tag "projects/app_1/2.png", class: "project-image-2", alt: "triphunter2"
+          .card-content
+            p.project__name = t("projects.app_1.title")
+            p.project__description = t("projects.app_1.subtitle")
+      .project__right.column
+        .project__card.card data-id="2"
+          .card-image
+            figure.image.is-4by3
+              = image_tag "projects/app_2/1.jpg", class: "project-image-1", alt: "vatnow1"
+              = image_tag "projects/app_2/2.png", class: "project-image-2", alt: "vatnow2"
+          .card-content
+            p.project__name = t("projects.app_2.title")
+            p.project__description = t("projects.app_2.subtitle")
+        .project__card.card data-id="4"
+          .card-image
+            figure.image.is-4by3
+              = image_tag "projects/app_4/1.jpg", class: "project-image-1", alt: "hochay1"
+              = image_tag "projects/app_4/2.jpg", class: "project-image-2", alt: "hochay2"
+          .card-content
+            p.project__name = t("projects.app_4.title")
+            p.project__description = t("projects.app_4.subtitle")
+    .project__view-all
+      a.primary-button href="/#{I18n.locale}/project" data-turbolinks="false"
+        = t("options.view_all")
+    - (1..5).each_with_index do |_p, index|
+      - index = index + 1
+      = render partial: "projects/app_#{index}"
+  /! FEEDBACK SECTION
+  section.feedback-customer
+    p.feedback-customer__heading Phản hồi khách hàng
+    .feedback-customer__slider
+      .feedback-customer__slide
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai Quá
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+      .feedback-customer__slide
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai Quá Lắm
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai Quá Lắm Luôn
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+
+  = render partial: 'form'
+= render partial: 'footer'

@@ -1,0 +1,24 @@
+.project-modal.modal#project-modal-4
+  .modal-background
+    .modal-card
+      section.modal-card-body
+        button.modal-close.is-large aria-label="close" data-id="4"
+        p.project-modal__name = t("projects.app_4.title")
+        p.project-modal__description = t("projects.app_4.subtitle")
+        .project-modal__images
+          = image_tag "projects/app_4/1.jpg", alt: "hochay1"
+          = image_tag "projects/app_4/2.jpg", alt: "hochay2"
+        .project-modal__content
+          - (1..10).each_with_index do |_p, index|
+            - index = index + 1
+            = t("projects.app_4.description_#{index}")
+            br/
+            br/
+        p.project-modal__read-more data-content="/#{I18n.locale}" = t("options.read_more")
+        .project-modal__get
+          a href="#{t('projects.app_4.link_web')}" target="_blank"
+            = image_tag "web.png"
+          a href="#{t('projects.app_4.link_apple')}" target="_blank"
+            = image_tag "app-store.jpg"
+          a href="#{t('projects.app_4.link_android')}" target="_blank"
+            = image_tag "gg-play.jpg"

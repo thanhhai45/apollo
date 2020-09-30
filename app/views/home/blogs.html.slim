@@ -1,0 +1,27 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Blog'
+.blog
+  = image_tag "blog-panel.jpg", class: "blog__panel", alt: "blog-panel.jpg"
+  .blog__wrapper
+    h2.blog__heading BLOG
+    ul.blog-detail__post-list
+      - @blogs.each do |blog|
+        li
+          a href="blog/#{blog.slug}" data-turbolinks="false"
+            .blog-detail__card.card
+              .card-image
+                figure.image
+                  - if blog.cover_image_url.nil?
+                    = image_tag "default-image.png", alt: "default-image"
+                  - else
+                    = image_tag blog.cover_image, alt: "blog.cover_image"
+              .card-content
+                p.blog-detail__date
+                  = blog.created_at.strftime("%m/%d/%Y %H:%M")
+                p.blog-detail__name 
+                  = I18n.locale.to_sym == :en ? blog.title_en : blog.title
+                p.blog-detail__description
+                  = I18n.locale.to_sym == :en ? truncate(strip_tags(blog.content_en.to_plain_text), length: 200) : truncate(strip_tags(blog.content.to_plain_text), length: 200)
+    = render partial: 'shared/pagination', locals: {pagy: @pagy}
+= render partial: 'footer'

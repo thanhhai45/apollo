@@ -1,0 +1,112 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Process'
+.procedure
+  .procedure__panel
+    = image_tag "bg-quytrinh.jpg", alt: "bg-quytrinh.jpg"
+  .contact__form
+    p.contact__heading = t("menu.li_process")
+    p.contact__description
+      = t("process_page.title")
+  .procedure__carousel
+    .procedure__faded
+    .procedure__list
+      .procedure__item.procedure__item--1
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 01
+          span.procedure__name = t("process_page.slide.option_1.title")
+        .procedure__content
+          = t("process_page.slide.option_1.description_1")
+      .procedure__item.procedure__item--2
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 02
+          span.procedure__name = t("process_page.slide.option_2.title")
+        .procedure__content
+          = t("process_page.slide.option_2.description_1")
+          br/
+          br/
+          = t("process_page.slide.option_2.description_2")
+      .procedure__item.procedure__item--3
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 03
+          span.procedure__name = t("process_page.slide.option_3.title")
+        .procedure__content
+          = t("process_page.slide.option_3.description_1")
+          br/
+          br/
+          = t("process_page.slide.option_3.description_2")
+          br/
+          br/
+          = t("process_page.slide.option_3.description_3")
+      .procedure__item.procedure__item--4
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 04
+          span.procedure__name = t("process_page.slide.option_4.title")
+        .procedure__content
+          = t("process_page.slide.option_4.description_1")
+          br/
+          br/
+          = t("process_page.slide.option_4.description_2")
+      .procedure__item.procedure__item--5
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 05
+          span.procedure__name = t("process_page.slide.option_5.title")
+        .procedure__content
+          = t("process_page.slide.option_5.description_1")
+      .procedure__item.procedure__item--6
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 06
+          span.procedure__name = t("process_page.slide.option_6.title")
+        .procedure__content
+          = t("process_page.slide.option_6.description_1")
+          br/
+          br/
+          = t("process_page.slide.option_6.description_2")
+      .procedure__item.procedure__item--7
+        .procedure__item-faded
+        p.procedure__heading
+          span.procedure__num 07
+          span.procedure__name = t("process_page.slide.option_7.title")
+        .procedure__content
+          = t("process_page.slide.option_7.description_1")
+          br/
+          br/
+          = t("process_page.slide.option_7.description_2")
+    .procedure__nav
+      = image_tag "arrow-up.svg", class: "procedure__arrow-up", alt: "procedure__arrow-up"
+      .procedure__navbar
+        .procedure__nav-list
+          .procedure__nav-item.procedure__nav-item--1.active
+            span = t("process_page.slide.option_1.title")
+            span.procedure__step-num 01
+          .procedure__nav-item.procedure__nav-item--2
+            span = t("process_page.slide.option_2.title")
+            span.procedure__step-num 02
+          .procedure__nav-item.procedure__nav-item--3
+            span = t("process_page.slide.option_3.title")
+            span.procedure__step-num 03
+          .procedure__nav-item.procedure__nav-item--4
+            span = t("process_page.slide.option_4.title")
+            span.procedure__step-num 04
+          .procedure__nav-item.procedure__nav-item--5
+            span = t("process_page.slide.option_5.title")
+            span.procedure__step-num 05
+          .procedure__nav-item.procedure__nav-item--6
+            span= t("process_page.slide.option_6.title")
+            span.procedure__step-num 06
+          .procedure__nav-item.procedure__nav-item--7
+            span = t("process_page.slide.option_7.title")
+            span.procedure__step-num 07
+      .procedure__nav-line
+      = image_tag "arrow-down.svg", class: "procedure__arrow-down", alt: "procedure__arrow-down"
+  = render partial: 'proceduce_mobile'
+  section.feedback
+    = render partial: 'form'
+
+= render partial: 'footer'

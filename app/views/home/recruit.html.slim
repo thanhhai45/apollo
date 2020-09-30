@@ -1,0 +1,22 @@
+= render partial: 'header'
+h1.hidden
+  = title 'Recruit'
+.recruit-page
+  .recruit-page__panel
+    = image_tag "bg-recruit.jpg", alt: "bg-recruit.jpg"
+  .contact__form
+    p.contact__heading = t("careers_page.title")
+    p.contact__description = t("careers_page.description")
+  .recruit-page__job-list
+    - @recruits.each do |recruit|
+      .recruit-page__job-item
+        .recruit-page__job-header
+          p
+            = I18n.locale.to_sym == :en ? recruit.title_en : recruit.title
+          a href="mailto:hr@techapollo.vn?subject=#{recruit.subject}"
+            = t("options.apply")
+        .recruit-page__job-content
+          .recruit-page__job-description
+            = I18n.locale.to_sym == :en ? recruit.content_en.to_s : recruit.content.to_s
+          p.recruit-page__collapse = t("options.read_less")
+= render partial: 'footer'
