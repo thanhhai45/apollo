@@ -2,13 +2,13 @@
 h1.hidden
   = title 'Service'
 .service-page
-  = image_tag "d.png", alt: "d.png"
+  = image_tag "change/service_banner.svg", alt: "service_banner.svg"
   .service-page__top
     p.service-page__heading = t("menu.li_service")
     p.service-page__sub
       = t("service_page.app.title")
   .service-page__list
-    .service-page__row
+    .service-page__row#1
       .service-page__img
         = image_tag "f.png", alt: "f.png"
       .service-page__content
@@ -16,7 +16,15 @@ h1.hidden
         .service-page__metadata
           span iOS
           span Android
-          span Windows Phone
+          / span Windows Phone
+        .service-page__preview
+          = t("service_page.app.mobile_title_1")
+          br/
+          br/
+          = t("service_page.app.mobile_title_2")
+          br/
+          br/
+          = t("service_page.app.mobile_title_3")
         .service-page__description
           = t("service_page.app.mobile_title_1")
           br/
@@ -46,11 +54,11 @@ h1.hidden
           = t("service_page.app.development_android_title")
           br/
           br/
-          b = t("service_page.app.development_winphone")
-          br/
-          = t("service_page.app.development_winphone_title")
-          br/
-          br/
+          / b = t("service_page.app.development_winphone")
+          / br/
+          / = t("service_page.app.development_winphone_title")
+          / br/
+          / br/
           b = t("service_page.app.development_hybird")
           br/
           = t("service_page.app.development_hybird_title_1")
@@ -58,12 +66,18 @@ h1.hidden
           br/
           br/
           
-        span.service-page__read = t("options.read_more")
-    .service-page__row.rtl
+        span.service-page__read data-content="#{I18n.locale}" = t("options.read_more")
+    .service-page__row.rtl#2
       .service-page__img
         = image_tag "g.png", alt: "g.png"
       .service-page__content
         p.service-page__name = t("service_page.web.development_web")
+        .service-page__preview
+          b = t("service_page.web.development_web_title")
+          = t("service_page.web.development_web_title_1")
+          br/
+          br/
+          = t("service_page.web.development_web_title_2")
         .service-page__description
           b = t("service_page.web.development_web_title")
           = t("service_page.web.development_web_title_1")
@@ -94,12 +108,17 @@ h1.hidden
           br/
           = t("service_page.web.development_web_title_12")
 
-        spans.service-page__read = t("options.read_more")
-    .service-page__row
+        spans.service-page__read data-content="#{I18n.locale}" = t("options.read_more")
+    .service-page__row#3
       .service-page__img
         = image_tag "h.png", alt: "h.png"
       .service-page__content
         p.service-page__name = t("service_page.ui_ux.title")
+        .service-page__preview
+          = t("service_page.ui_ux.description_1")
+          br/
+          br/
+          = t("service_page.ui_ux.description_2")
         .service-page__description
           = t("service_page.ui_ux.description_1")
           br/
@@ -110,7 +129,6 @@ h1.hidden
           = t("service_page.ui_ux.description_3")
           br/
           br/
-        span.service-page__read = t("options.read_more")
-  section.feedback
-    = render partial: 'form'
+        span.service-page__read data-content="#{I18n.locale}" = t("options.read_more")
+  = render partial: 'form'
 = render partial: 'footer'

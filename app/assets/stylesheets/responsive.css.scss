@@ -1,4 +1,10 @@
 @media screen and (max-width: 768px) {
+  .primary-button {
+    font-size: 11px;
+    padding: 4px 20px !important;
+    min-width: 106px;
+    height: auto !important
+  }
   .navbar {
     background-color: #030c30 !important;
     padding: 0 !important;
@@ -87,22 +93,22 @@
     .navbar-item.active {
     color: #fff !important;
   }
-  .navbar-menu.is-active .navbar-lang {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    padding: 0;
-  }
   .navbar-menu.is-active .navbar-lang .navbar-link {
-    left: -10px;
-    padding-right: 15px;
+    left: -20px;
+    padding-right: 15px
   }
+
   .navbar-menu.is-active .navbar-lang .navbar-link::after {
-    top: 12px;
+    top: 10px;
     left: calc(50% + 10px);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
   }
+
   .navbar-menu.is-active .navbar-lang .navbar-dropdown {
-    display: none;
+    display: none
   }
+
   .navbar-menu.is-active .navbar-lang.is-active {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -113,23 +119,37 @@
     padding: 0;
     height: 58px;
     border-radius: 5px;
-    left: -10px;
+    left: 0
   }
+
   .navbar-menu.is-active .navbar-lang.is-active .navbar-link {
     background-color: rgba(255, 255, 255, 0.05);
     left: 0;
+    padding-top: 3px
   }
+
+  .navbar-menu.is-active .navbar-lang.is-active .navbar-link::after {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg)
+  }
+
   .navbar-menu.is-active .navbar-lang.is-active .navbar-dropdown {
     display: block;
     border: none;
-    background-color: transparent;
+    background-color: transparent
   }
+
   .navbar-menu.is-active .navbar-lang.is-active .navbar-dropdown .navbar-item {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 2px 15px 2px 0;
+    padding: 2px 15px 2px 0
   }
   .project-page__panel {
-    display: none;
+    // display: none;
+  }
+  .project-page__heading {
+    font-size: 21px;
+    font-family: 'Montserrat-Medium', sans-serif
   }
   .project-page__top {
     width: 80%;
@@ -139,6 +159,13 @@
   .project-page__list {
     padding: 0 20px;
   }
+  .project-page__list .column {
+    padding: 9px
+  }
+
+  .project-page__list .project__card {
+    margin: 0
+  }
   .project-page__paging {
     padding: 20px;
     text-align: center;
@@ -147,6 +174,7 @@
     width: 100%;
     height: 100%;
     max-height: 100%;
+    margin: 0;
   }
   .project-modal .modal-card-body {
     border-radius: 0;
@@ -186,58 +214,76 @@
   }
   .footer__logo {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 0;
-    text-align: center;
+    text-align: center
   }
+
   .footer__logo img {
-    margin-bottom: 15px;
+    margin-bottom: 15px
   }
+
   .footer__bottom {
     position: static;
-    bottom: 0;
+    bottom: 0
   }
+
   .footer__bar {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column;
+    flex-direction: column
   }
+
   .footer__info {
     text-align: center;
-    margin-bottom: 40px;
-    color: #f45a1c;
+    margin-bottom: 0;
+    color: #fff
   }
+
   .footer__nav ul {
     height: auto;
-    padding: 0;
+    padding: 0
   }
+
   .footer__nav ul li {
     margin: 0 auto;
     display: block;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 25px
   }
+
   .footer__nav ul li:first-child {
-    display: none;
+    display: none
   }
+
   .footer__nav ul li a {
-    text-transform: uppercase;
-    text-align: center;
+    text-align: center
   }
-  .footer__copy-right {
-    display: none;
-  }
+
   .footer__social {
-    opacity: 0.4;
-    padding: 12px 0;
+    padding: 12px 0
   }
+
+  .footer__social ul {
+    padding-top: 15px
+  }
+
   .footer__social ul li {
     text-align: center;
-    margin: auto 10px;
+    margin: auto 10px
   }
+
   .footer__social ul li:first-child {
-    display: none;
+    font-size: 17px;
+    text-transform: none;
+    color: #fff;
+    font-family: 'SF-Pro-Display-Medium', sans-serif;
+    margin-bottom: 10px
+  }
+  .service-page__heading {
+    font-size: 21px;
+    font-family: 'Montserrat-Medium', sans-serif
   }
   .service-page__top {
     width: calc(100% - 40px);
@@ -268,11 +314,29 @@
   .feedback {
     padding: 20px;
   }
+  .feedback .column:first-child {
+    bottom: auto;
+  }
   .feedback__title {
+    text-transform: none;
     margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-family: 'Montserrat-Medium', sans-serif
+  }
+
+  .feedback__sub {
+    font-size: 15px;
+    line-height: 18px;
+    font-family: 'SF-Pro-Display-LightItalic', sans-serif;
+    width: auto;
   }
   .contact__form {
     padding: 50px 20px;
+  }
+  .contact__heading {
+    font-size: 21px;
+    font-family: 'Montserrat-Medium', sans-serif
   }
   .about-page__why {
     padding: 40px 20px;
@@ -284,6 +348,9 @@
     width: calc(50% - 10px);
     height: 150px;
     padding-top: 15px;
+  }
+  .about-page__why-box img {
+    height: 47px
   }
   .about-page__why-box p {
     padding: 10px;
@@ -336,6 +403,16 @@
   }
   .contact__map-img-mobile {
     display: block;
+  }
+  .contact__addresss {
+    font-size: 18px !important;
+    line-height: 21px;
+    font-family: 'SF-Pro-Display-Light', sans-serif !important
+  }
+
+  .contact__phone {
+    font-size: 17px !important;
+    font-family: 'SF-Pro-Display-Regular', sans-serif
   }
   .blog__panel {
     display: none;
@@ -409,7 +486,7 @@
     text-transform: none;
   }
   .recruit-page__panel {
-    display: none;
+    // display: none;
   }
   .recruit-page__job-list {
     padding: 0 20px 30px 20px;
@@ -458,7 +535,7 @@
     margin-bottom: 30px;
   }
   .procedure__panel {
-    display: none;
+    // display: none;
   }
   .procedure .contact__form {
     padding: 42px 20px;
@@ -505,10 +582,10 @@
   .procedure__carousel--mobile .item {
     padding: 20px;
     border-radius: 10px;
-    -webkit-box-shadow: 0 3px 6px 0 #000;
-    box-shadow: 0 3px 6px 0 #000;
+    -webkit-box-shadow: 0 0 2px 0 #000;
+    box-shadow: 0 0 2px 0 #000;
     background-color: rgba(255, 255, 255, 0.05);
-    margin-bottom: 10px;
+    margin-bottom: 10px
   }
   .procedure__carousel--mobile .item-header {
     position: relative;
@@ -516,12 +593,25 @@
     font-size: 17px;
     color: #fff;
   }
+
   .procedure__carousel--mobile .item-header span {
     border-right: 2px solid #fff;
     padding-right: 5px;
     margin-right: 5px;
     display: inline-block;
     line-height: 15px;
+  }
+  .procedure__carousel--mobile .item-header .procedure-icon {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    cursor: pointer;
+    display: block
+  }
+
+  .procedure__carousel--mobile .item-header .procedure-icon.minus {
+    top: 12px;
+    display: none
   }
   .procedure__carousel--mobile .item-content {
     white-space: pre-wrap;
@@ -538,6 +628,12 @@
   }
   .procedure__carousel--mobile .item.open .item-header span {
     border-color: #f45a1c;
+  }
+  .procedure__carousel--mobile .item.open .item-header .minus {
+    display: block
+  }
+  .procedure__carousel--mobile .item.open .item-header .plus {
+    display: none
   }
   .procedure__carousel--mobile .item.open .item-content {
     max-height: 100%;
@@ -586,28 +682,74 @@
     width: 100%;
     font-size: 21px;
     color: #222;
+    font-family: 'Montserrat-Medium', sans-serif
   }
   .home .service {
-    height: auto;
+    height: 1200px;
     background-image: asset-url("mb-home-service.jpg");
   }
+
   .home .service__title {
     padding: 53px 0;
+    font-size: 21px;
+    font-family: 'Montserrat-Medium', sans-serif
   }
+
   .home .service__list {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin: 0;
+    margin: 0
   }
+
   .home .service__item {
     padding: 0 42px 53px 42px;
+    width: 100%
   }
+
   .home .service__item a {
-    margin-top: 20px;
+    margin-top: 20px
+  }
+
+  .home .service__heading {
+    height: auto
+  }
+
+  .home .service__info {
+    height: auto
   }
   .home .project {
     padding: 20px;
+    margin-bottom: 20px
+  }
+
+  .home .project__header {
+    margin: 10px 0
+  }
+
+  .home .project__heading {
+    font-size: 21px;
+    font-family: 'Montserrat-Medium', sans-serif
+  }
+
+  .home .project__left {
+    padding-bottom: 0
+  }
+
+  .home .project__left .project__name {
+    font-size: 17px
+  }
+
+  .home .project__right {
+    padding-top: 0
+  }
+
+  .home .project__card {
+    margin-top: 18px
+  }
+
+  .home .project__view-all {
+    margin-top: 25px
   }
 }

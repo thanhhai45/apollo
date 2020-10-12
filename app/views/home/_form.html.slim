@@ -6,19 +6,21 @@ section.feedback
         = t("home_page.share_with_me")
     .column
       .feedback__form
-        form action="https://formspree.io/xdopkzdy" method="POST" 
+        form#form-contact action="https://formspree.io/xdopkzdy" method="POST" onsubmit="return checkform()"
           .field
             .control
-              input.input placeholder="#{t("home_page.your_name")}" name="name" type="text" /
+              input.input#name placeholder="#{t("home_page.your_name")}" name="name" type="text" /
+            span#name_field style="color: red; display: none; text-align: start;" = t("home_page.require_field")
           .field
             .control
-              input.input placeholder="#{t("home_page.your_email")}" name="_replyto" type="email" /
+              input.input#email placeholder="#{t("home_page.your_email")}" name="_replyto" type="email" /
+            span#email_field style="color: red; display: none; text-align: start;" = t("home_page.require_field")
           .field
             .control
               input.input placeholder="#{t("home_page.your_title")}" name="title" type="text" /
           .field
             .control
-              textarea.textarea placeholder="#{t("home_page.your_content")}" name="content"
+              textarea.textarea#message placeholder="#{t("home_page.your_content")}" name="content"
+            span#message_field style="color: red; display: none; text-align: start;" = t("home_page.require_field")
           .control
-            button.button.primary-button type="submit" = t("home_page.send")
-          
+            button.button.primary-button#submit type="submit" = t("home_page.send")

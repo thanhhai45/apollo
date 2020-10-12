@@ -4,15 +4,15 @@ h1.hidden
 .blog-detail
   .blog-detail__wrapper
     p.blog-detail__date
-      = @blog.created_at.strftime("%m/%d/%Y %H:%M")
+      = @blog.created_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%d/%m/%Y %H:%M")
     p.blog-detail__title
       = I18n.locale.to_sym == :en ? @blog.title_en : @blog.title
     - if @blog.cover_image_url.nil?
       = image_tag "default-image.png"
     - else
-      = image_tag @blog.cover_image, class: "blog-detail__img", alt: "#{@blog.cover_image}"
+      = image_tag @blog.cover_image_url, class: "blog-detail__img", alt: "#{@blog.cover_image}"
     .blog-detail__content
-      = I18n.locale.to_sym == :en ? @blog.content_en.to_s : @blog.content.to_s
+      = I18n.locale.to_sym == :en ? @blog.content_en.to_plain_text : @blog.content.to_plain_text
     .blog-detail__foot-line
       p.blog-detail__author
         | By 
@@ -29,7 +29,8 @@ h1.hidden
             i.fab.fa-twitter
     .blog-detail__related
       p.blog-detail__related-title = t("options.relationship_blog")
-      a.blog-detail__view-all href="/blogs?type=#{@blog.blog_type_id}" = t("options.view_all")
+      a.blog-detail__view-all href="/blogs?type=#{@blog.blog_type_id}" data-turbolinks="false"
+        = t("options.view_all")
     ul.blog-detail__post-list
       - @blog_relative.each do |relative|
         li
@@ -40,10 +41,10 @@ h1.hidden
                   - if relative.cover_image_url.nil?
                     = image_tag "default-image.png"
                   - else
-                    = image_tag relative.cover_image, class: "blog-detail__img", alt: "#{relative.cover_image}"
+                    = image_tag relative.cover_image_url, class: "blog-detail__img", alt: "#{relative.cover_image}"
               .card-content
                 p.blog-detail__date
-                  = relative.created_at.strftime("%m/%d/%Y %H:%M")
+                  = relative.created_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%d/%m/%Y %H:%M")
                 p.blog-detail__name
                   = I18n.locale.to_sym == :en ? relative.title_en : relative.title
                 p.blog-detail__description

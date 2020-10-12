@@ -30,7 +30,6 @@ class Blog < ApplicationRecord
                   against: [:title],
                   using: { tsearch: { prefix: true } }
   def cover_image_url
-    return unless cover_image.attached?
-    rails_blob_path(cover_image, disposition: "attachment", only_path: true)
+    Rails.application.routes.url_helpers.rails_blob_path(cover_image, only_path: true) if cover_image.attached?
   end
 end

@@ -3,7 +3,7 @@ h1.hidden
   = title 'Process'
 .procedure
   .procedure__panel
-    = image_tag "bg-quytrinh.jpg", alt: "bg-quytrinh.jpg"
+    = image_tag "change/process_banner.svg", alt: "process_banner.svg"
   .contact__form
     p.contact__heading = t("menu.li_process")
     p.contact__description
@@ -106,7 +106,6 @@ h1.hidden
       .procedure__nav-line
       = image_tag "arrow-down.svg", class: "procedure__arrow-down", alt: "procedure__arrow-down"
   = render partial: 'proceduce_mobile'
-  section.feedback
-    = render partial: 'form'
+  = render partial: 'form'
 
 = render partial: 'footer'

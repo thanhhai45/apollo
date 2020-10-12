@@ -5,16 +5,19 @@ h1.hidden
   /! INTRODUCTION SECTION
   section.introduction
     = render partial: 'header'
-    = image_tag("bg-home.png", class: "introduction__bg", alt: "bg-home.png")
-    = image_tag("mb-home-introduce.png", class: "introduction__bg", alt: "mb-home-introduce.png", class: "introduction__bg is-mobile")
+    = image_tag("change/home_banner.svg", class: "introduction__bg", alt: "home_banner.svg")
+    = image_tag("change/mb_home_banner.png", class: "introduction__bg", alt: "mb_home_banner.png", class: "introduction__bg is-mobile")
     .introduction__info
-      p.introduction__slogan = t("home_page.right_text")
+      p.introduction__slogan
+        = t("home_page.right_text")
+        br /
+        = t("home_page.tech_partner")
       a.introduction__more.primary-button href="/#{I18n.locale}/about-us" data-turbolinks="false"
         = t("home_page.learn_more")
   /! FOUNDER SECTION
   section.founder.columns
     .founder__picture.column
-      = image_tag "bg-about-us.png", alt: "bg-about-us.png"
+      = image_tag "change/home_about_banner.svg", alt: "home_about_banner.svg"
     .founder__story.column
       p.founder__title = t("menu.li_about_us")
       p.founder__text = t("home_page.introduce")
@@ -22,26 +25,28 @@ h1.hidden
         = t("home_page.learn_more")
   /! SERVICE SECTION
   section.service
-    p.service__title = t("menu.li_service")
-    .service__list
-      .service__item
-        = image_tag "outline.svg", alt: "outline.svg"
-        p.service__heading = t("home_page.mobile_develop")
-        p.service__info = t("home_page.build_full_os")
-        a href="/#{I18n.locale}/service" data-turbolinks="false"
-          = t("options.detail")
-      .service__item
-        = image_tag "outline.svg", alt: "outline.svg"
-        p.service__heading = t("home_page.web_develop")
-        p.service__info = t("home_page.help_startup")
-        a href="/#{I18n.locale}/service" data-turbolinks="false"
-          = t("options.detail")
-      .service__item
-        = image_tag "outline.svg", alt: "outline.svg"
-        p.service__heading = t("home_page.ui_ux")
-        p.service__info  = t("home_page.idea")
-        a href="/#{I18n.locale}/service" data-turbolinks="false"
-          = t("options.detail")
+    .faded
+    .service__wrapper
+      p.service__title = t("menu.li_service")
+      .service__list
+        .service__item
+          = image_tag "outline.png", alt: "outline.svg"
+          p.service__heading = t("home_page.mobile_develop")
+          p.service__info = t("home_page.build_full_os")
+          a href="/#{I18n.locale}/service#1" data-turbolinks="false"
+            = t("options.detail")
+        .service__item
+          = image_tag "human-resources.png", alt: "human-resources.png"
+          p.service__heading = t("home_page.web_develop")
+          p.service__info = t("home_page.help_startup")
+          a href="/#{I18n.locale}/service#2" data-turbolinks="false"
+            = t("options.detail")
+        .service__item
+          = image_tag "artificial-intelligence.png", alt: "artificial-intelligence.png"
+          p.service__heading = t("home_page.ui_ux")
+          p.service__info  = t("home_page.idea")
+          a href="/#{I18n.locale}/service#3" data-turbolinks="false"
+            = t("options.detail")
   /! PROJECT SECTION
   section.project
     .project__header
@@ -80,8 +85,13 @@ h1.hidden
       - index = index + 1
       = render partial: "projects/app_#{index}"
   /! FEEDBACK SECTION
-  section.feedback-customer
-    p.feedback-customer__heading Phản hồi khách hàng
+  /section.feedback-customer
+    .feedback-customer__header
+      p.feedback-customer__heading = t("home_page.client_feedback")
+      span.slide-arrow.feedback-customer__prev data-toggle="prev"
+        = image_tag("arrow-left.png", alt: "arrow-left.png")
+      span.slide-arrow.feedback-customer__next data-toggle="next"
+        = image_tag("arrow-right.png", alt: "arrow-right.png")
     .feedback-customer__slider
       .feedback-customer__slide
         .slide-card
@@ -111,6 +121,21 @@ h1.hidden
             img alt="" src="images/customer.png" /
             .slide-info
               p.name Nhã Đẹp Trai Quá Lắm Luôn
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+      .feedback-customer__slide
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai Quá Lắm 3
+              p.title CEO DEP TRAI
+          p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
+        .slide-card
+          .slide-header
+            img alt="" src="images/customer.png" /
+            .slide-info
+              p.name Nhã Đẹp Trai Quá Lắm Luôn 3
               p.title CEO DEP TRAI
           p.slide-content Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ad suscipit! Tempore similique quisquam illum perferendis sapiente. Quidem, maxime voluptas. Pariatur unde ut beatae laboriosam!
 

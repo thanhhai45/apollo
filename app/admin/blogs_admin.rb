@@ -21,7 +21,7 @@ Trestle.resource(:blogs) do
     column :title
     column :status
     column :content do |blog|
-      truncate(strip_tags(blog.content.to_s), length: 50)
+      truncate(strip_tags(blog.content.to_plain_text), length: 50)
     end
     column :created_at, align: :center
     actions
@@ -34,7 +34,7 @@ Trestle.resource(:blogs) do
       row do
         col { text_field :title }
       end
-      rich_text_area :content
+      editor :content
     end
 
     tab :en do
@@ -42,13 +42,20 @@ Trestle.resource(:blogs) do
         col { text_field :title_en }
       end
       
-      rich_text_area :content_en
+      editor :content_en
     end
 
     tab :info do
       # rich_text_area :content_en
       row do
-        col { active_storage_field :cover_image }
+        col do
+          active_storage_field :cover_image
+        end
+        col do
+          if blog.cover_image.attached?
+            image_tag(Rails.application.routes.url_helpers.rails_blob_path(blog.cover_image, only_path: true))
+          end
+        end
       end
 
       row do

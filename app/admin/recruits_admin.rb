@@ -21,7 +21,7 @@ Trestle.resource(:recruits) do
       end
       
       row do
-        col { rich_text_area :content }
+        col { editor :content }
       end
     end
 
@@ -31,14 +31,11 @@ Trestle.resource(:recruits) do
       end
       
       row do
-        col { rich_text_area :content_en }
+        col { editor :content_en }
       end
     end
 
     tab :info do
-      row do
-        col { editor :content_en }
-      end
 
       row do
         col { text_field :subject }

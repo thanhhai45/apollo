@@ -3,7 +3,7 @@ nav.navbar aria-label=("main navigation") role="navigation"
   .navbar-brand
     a.navbar-item href="/#{I18n.locale}/" data-turbolinks="false"
       = image_tag "nav-logo.svg", alt: "nav-logo.svg"
-    a.navbar-burger aria-expanded="false" aria-label="menu" role="button" 
+    a.navbar-burger aria-expanded="false" aria-label="menu" role="button" data-turbolinks="false"
       span aria-hidden="true" 
       span aria-hidden="true" 
       span aria-hidden="true" 
@@ -18,15 +18,16 @@ nav.navbar aria-label=("main navigation") role="navigation"
       a class="navbar-item #{active_tab == 'project' && 'active'}" href="/#{I18n.locale}/project" data-turbolinks="false"
         = t("menu.li_project")
       .navbar-company.navbar-item.has-dropdown.is-hoverable
-        a.navbar-link
+        a class="navbar-link #{(active_tab == 'about-us' || active_tab == 'recruit') && 'active'}"
           = t("menu.li_company")
         .navbar-dropdown
           a class="navbar-item #{active_tab == 'about-us' && 'active'}" href="/#{I18n.locale}/about-us" data-turbolinks="false"
             = t("menu.li_about_us")
           a class="navbar-item #{active_tab == 'recruit' && 'active'}" href="/#{I18n.locale}/recruit" data-turbolinks="false"
             = t("menu.li_career")
-      a class="navbar-item #{active_tab == 'blog' && 'active'}" href="/#{I18n.locale}/blogs" data-turbolinks="false"
-        = t("menu.li_blog")
+      - if I18n.locale.to_sym == :vi
+        a class="navbar-item #{(active_tab == 'blogs' || active_tab == 'blog') && 'active'}" href="/#{I18n.locale}/blogs" data-turbolinks="false"
+          = t("menu.li_blog")
       a class="navbar-item #{active_tab == 'contact' && 'active'}" href="/#{I18n.locale}/contact" data-turbolinks="false"
         = t("menu.li_contact")
       .navbar-lang.navbar-item.has-dropdown.is-hoverable
@@ -34,7 +35,6 @@ nav.navbar aria-label=("main navigation") role="navigation"
           = I18n.locale.upcase
         .navbar-dropdown
           - action = change_url(params)
-          a class="navbar-item #{I18n.locale.to_s.strip.to_sym == :vi && 'active'}" href="/vi/#{action}" data-turbolinks="false"
-            | VI
-          a class="navbar-item #{I18n.locale.to_s.strip.to_sym == :en && 'active'}" href="/en/#{action}" data-turbolinks="false"
-            | EN
+          - text = I18n.locale.to_sym == :en ? "vi" : "en"
+          a class="navbar-item" href="/#{text}/#{action}" data-turbolinks="false"
+            = text.upcase

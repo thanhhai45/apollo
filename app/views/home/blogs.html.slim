@@ -15,10 +15,10 @@ h1.hidden
                   - if blog.cover_image_url.nil?
                     = image_tag "default-image.png", alt: "default-image"
                   - else
-                    = image_tag blog.cover_image, alt: "blog.cover_image"
+                    = image_tag blog.cover_image_url, alt: "cover_image"
               .card-content
                 p.blog-detail__date
-                  = blog.created_at.strftime("%m/%d/%Y %H:%M")
+                  = blog.created_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%d/%m/%Y %H:%M")
                 p.blog-detail__name 
                   = I18n.locale.to_sym == :en ? blog.title_en : blog.title
                 p.blog-detail__description

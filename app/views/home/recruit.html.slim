@@ -3,9 +3,12 @@ h1.hidden
   = title 'Recruit'
 .recruit-page
   .recruit-page__panel
-    = image_tag "bg-recruit.jpg", alt: "bg-recruit.jpg"
+    = image_tag "change/recruit_banner.svg", alt: "bg-recruit.jpg"
   .contact__form
-    p.contact__heading = t("careers_page.title")
+    p.contact__heading
+      = t("careers_page.title")
+      br /
+      = t("careers_page.sub_title")
     p.contact__description = t("careers_page.description")
   .recruit-page__job-list
     - @recruits.each do |recruit|

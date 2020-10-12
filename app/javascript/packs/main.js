@@ -1,8 +1,12 @@
 $(document).ready(function () {
+  var feedbackCarouselIndex = 1;
+  var initialLengthFeedbackCarousel = $('.feedback-customer__slider').children().length;
+  $(".feedback-customer__prev").addClass("disabled");
+  var locale = $("body").attr("data-content");
   // READ MORE PROJECT
   $(".project-modal__read-more").click(function () {
     var content = $(".project-modal__content");
-    var locale = $(this).attr("data-content");
+    
     if (content.css("overflow") === "hidden") {
       content.css({
         height: "auto",
@@ -25,6 +29,13 @@ $(document).ready(function () {
     var id = $(this).attr("data-id")
     $("#project-modal-"+id).removeClass("is-active");
   });
+  $(document).click((e) => {
+    var id = $(".project-modal.is-active .modal-close").attr("data-id")
+    var isOutsideCard = $.contains($("#project-modal-"+id).get(0), e.target) && !$.contains($("#project-modal-"+id+" .modal-card").get(0), e.target);
+    if (isOutsideCard && $("#project-modal-"+id).hasClass("is-active")) {
+      $("#project-modal-"+id).removeClass("is-active");
+    }
+  }); 
 
   // OPEN PROJECT POPUP
   $(".project__card").click(function () {
@@ -34,6 +45,7 @@ $(document).ready(function () {
 
   // READ MORE SERVICE PAGE
   $(".service-page__read").click(function () {
+    
     if (
       $(this).siblings(".service-page__description").css("overflow") ===
       "hidden"
@@ -42,13 +54,41 @@ $(document).ready(function () {
         height: "auto",
         overflow: "auto",
       });
-      $(this).text("Rút gọn");
+      var text = locale == 'en' ? 'Less' : 'Rút gọn'
+      $(this).text(text);
     } else {
       $(this).siblings(".service-page__description").css({
         height: 150,
         overflow: "hidden",
       });
-      $(this).text("Đọc thêm");
+      var text = locale == 'en' ? 'Read more' : 'Đọc thêm'
+      $(this).text(text);
+    }
+  });
+
+  // READ MORE SERVICE PAGE
+  $(".service-page__read").click(function () {
+    if (
+      $(this).siblings(".service-page__description").css("display") ===
+      "none"
+    ) {
+      $(this).siblings(".service-page__description").css({
+        display: "block",
+      });
+      $(this).siblings(".service-page__preview").css({
+        display: "none",
+      });
+      var text = locale == 'en' ? 'Less' : 'Rút gọn'
+      $(this).text(text);
+    } else {
+      $(this).siblings(".service-page__description").css({
+        display: "none",
+      });
+      $(this).siblings(".service-page__preview").css({
+        display: "block",
+      });
+      var text = locale == 'en' ? 'Read more' : 'Đọc thêm'
+      $(this).text(text);
     }
   });
 
@@ -154,7 +194,7 @@ $(document).ready(function () {
 
   // READ MORE ABOUT PAGE - FOUNDER
   $(".about-page__read-more").click(function () {
-    var locale = $(this).attr("data-content");
+    
     if ($(this).siblings(".story").css("overflow") === "hidden") {
       $(this).siblings(".story").css({
         "max-height": "calc(100% - 200px)",
@@ -203,9 +243,107 @@ $(document).ready(function () {
 
   // MOBILE PROCEDURE COLLAPSE
   $(".procedure__carousel--mobile").css("height", $(".procedure__carousel--mobile .list").outerHeight());
-  $(".procedure__carousel--mobile .item-header").click(function () {
+  $(".procedure__carousel--mobile .item-header .procedure-icon").click(function () {
     $(".procedure__carousel--mobile .item").removeClass("open");
     $(this).parents(".item").toggleClass("open");
     $(".procedure__carousel--mobile").css("height", $(".procedure__carousel--mobile .list").outerHeight());
-  });;
+  });
+
+  /* FEEDBACK CUSTOMER SLIDER
+   * https://kenwheeler.github.io/slick/
+   */
+  $(".feedback-customer .slide-arrow").click(function () {
+    const isNext = $(this).data("toggle") === "next";
+
+    var carousel = $('.feedback-customer__slider');
+
+    var carouselWidth = $('.feedback-customer__slide').width();
+
+    var items = carousel.children();
+
+    var offset;
+    if (isNext) {
+      offset = -(feedbackCarouselIndex * carouselWidth);
+      for (var i = 0; i < items.length; i++) {
+        var item = items.get(i);
+        $(item).css({
+          'left': offset + 'px'
+        });
+      }
+      feedbackCarouselIndex += 1;
+
+      $(".feedback-customer__prev").removeClass("disabled");
+      if (feedbackCarouselIndex === initialLengthFeedbackCarousel) {
+        $(this).addClass("disabled");
+      }
+    } else {
+      for (var i = 0; i < items.length; i++) {
+        var item = items.get(i);
+        offset = Number($(item).css("left").replace("px", "")) + carouselWidth;
+        $(item).css({
+          'left': offset + 'px'
+        });
+      }
+      feedbackCarouselIndex -= 1;
+
+      $(".feedback-customer__next").removeClass("disabled");
+      if (feedbackCarouselIndex === 1) {
+        $(this).addClass("disabled");
+      }
+    }
+  });
+  // MOBILE SERVICE SECTION IN HOME PAGE
+  setServiceHeight();
+  $(window).on("resize", function () {
+    setServiceHeight();
+  });
+
+  function setServiceHeight() {
+    var newWindowWidth = $(window).width();
+    if (newWindowWidth < 768) {
+      var serviceWrapper = $(".home .service .service__wrapper");
+      $(".home .service").css("height", serviceWrapper.outerHeight());
+    } else {
+      $(".home .service").css("height", 600);
+    }
+  }
+
+  
+
+  $(document).on("click", "#submit", function (e) {
+    return checkform()
+  });
+  
 });
+
+function checkform() {
+  var name = $("#name").val()
+  var email = $("#email").val()
+  var message = $("#message").val();
+  var validationFailed = true
+  if (name.length === 0) {
+    $("span#name_field").css({ "display": "block" })
+    validationFailed = false
+  } else {
+    $("span#name_field").css({ "display": "none" })
+  }
+  if (email.length === 0) {
+    $("span#email_field").css({ "display": "block" })
+    validationFailed = false
+  } else {
+    $("span#email_field").css({ "display": "none" })
+  }
+  if (message.length === 0) {
+    $("span#message_field").css({ "display": "block" })
+    validationFailed = false
+  } else {
+    $("span#message_field").css({ "display": "none" })
+  }
+  if (name.length > 0 && email.length > 0 && message.length > 0) {
+    validationFailed = true
+    $("span#email_field").css({ "display": "none" })
+    $("span#name_field").css({ "display": "none" })
+    $("span#message_field").css({ "display": "none" })
+  }
+  return validationFailed
+}

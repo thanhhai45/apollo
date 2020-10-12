@@ -3,7 +3,7 @@ h1.hidden
   = title 'About'
 .about-page
   .about-page__panel
-    = image_tag "bg-about-us.jpg", alt: "bg-about-us.jpg"
+    = image_tag "change/about_us_banner.svg", alt: "about_us_banner.svg"
   .contact__form
     p.contact__heading = t("menu.li_about_us")
     p.contact__description
@@ -18,28 +18,28 @@ h1.hidden
         = image_tag "about/price.svg", alt: "about/price.svg"
         p = t("about_us_page.card.title_2")
       .about-page__why-box
-        = image_tag "about/team.svg", alt: "about/team.svg"
+        = image_tag "change/team.svg", alt: "change/team.svg", style: "height: 50px;"
         p = t("about_us_page.card.title_3")
       .about-page__why-box
-        = image_tag "about/idea.svg", alt: "about/idea.svg"
+        = image_tag "about/creative.svg", alt: "about/creative.svg"
         p = t("about_us_page.card.title_4")
       .about-page__why-box
         = image_tag "about/jet.svg", alt: "about/jet.svg"
         p = t("about_us_page.card.title_5")
       .about-page__why-box
-        = image_tag "about/lifecycle.svg", alt: "about/lifecycle.svg"
+        = image_tag "about/share.svg", alt: "about/share.svg"
         p = t("about_us_page.card.title_6")
       .about-page__why-box
-        = image_tag "about/work.svg", alt: "about/work.svg"
+        = image_tag "about/contract.svg", alt: "about/contract.svg"
         p = t("about_us_page.card.title_7")
       .about-page__why-box
         = image_tag "about/support.svg", alt: "about/support.svg"
         p = t("about_us_page.card.title_8")
       .about-page__why-box
-        = image_tag "about/learn.svg", alt: "about/learn.svg"
+        = image_tag "about/arm.svg", alt: "about/arm.svg"
         p = t("about_us_page.card.title_9")
       .about-page__why-box
-        = image_tag "about/build.svg", alt: "about/build.svg"
+        = image_tag "about/learn.svg", alt: "about/learn.svg"
         p = t("about_us_page.card.title_10")
   .about-page__founder
     .about-page__founder-image
@@ -59,7 +59,6 @@ h1.hidden
         br/
         br/
         = t("about_us_page.founder.description_4")
-      .about-page__read-more = t("options.read_more")
-  section.feedback
-    = render partial: 'form'
+      .about-page__read-more data-content="#{I18n.locale}" = t("options.read_more")
+  = render partial: 'form'
 = render partial: 'footer'

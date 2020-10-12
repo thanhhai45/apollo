@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     if params[:type].present?
       filter = { type: params[:type].to_i }
     end
-    @pagy, @blogs = pagy(Blog.filtered_by_blog_type(filter).publish, items: 2)
+    @pagy, @blogs = pagy(Blog.filtered_by_blog_type(filter).publish, items: 20)
   end
 
   def blog_detail
